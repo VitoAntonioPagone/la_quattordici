@@ -1,0 +1,1759 @@
+/* =========================================================
+   APPLE-STYLE FLATPICKR THEME
+========================================================= */
+
+.flatpickr-calendar {
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255,255,255,0.9);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Sora", sans-serif;
+  color: #1c1c1e;
+  font-size: 16px !important; /* prevent iOS zoom */
+  overflow: hidden;
+}
+
+/* Header: month + year */
+.flatpickr-months {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0 4px;
+  background: transparent;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.flatpickr-months .flatpickr-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1c1c1e;
+}
+
+.flatpickr-current-month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.flatpickr-current-month .cur-month {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.flatpickr-current-month .numInputWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flatpickr-current-month input.cur-year {
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #1c1c1e;
+  font-weight: 500;
+  width: 3.5em;
+  text-align: center;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.flatpickr-current-month input.cur-year:hover,
+.flatpickr-current-month input.cur-year:focus {
+  color: #007aff;
+}
+
+/* Hide native spin buttons */
+.flatpickr-current-month input.cur-year::-webkit-inner-spin-button,
+.flatpickr-current-month input.cur-year::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Arrows */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: rgba(0,0,0,0.4);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  background: rgba(0,0,0,0.05);
+  fill: #007aff;
+}
+
+/* Weekdays */
+.flatpickr-weekdays {
+  background: transparent;
+  font-weight: 500;
+  color: #8e8e93;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+/* Days */
+.flatpickr-day {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1c1c1e;
+  background: transparent;
+  border: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+.flatpickr-day:hover,
+.flatpickr-day:focus {
+  background: rgba(0,0,0,0.05);
+}
+
+/* Selected */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background: #007aff !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,122,255,0.25);
+}
+
+/* Today indicator */
+.flatpickr-day.today {
+  border: 1.5px solid rgba(60,60,67,0.3);
+  font-weight: 500;
+}
+
+/* Disabled */
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover {
+  color: rgba(60,60,67,0.4);
+  background: transparent;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Booked days (soft red outline) */
+.flatpickr-day.booked-date {
+  border: 1.5px solid rgba(255,59,48,0.4);
+  color: rgba(255,59,48,0.8);
+  background: transparent;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Available days (soft green hint on hover) */
+.flatpickr-day.available-date {
+  border: 1.5px solid rgba(52,199,89,0.3);
+}
+.flatpickr-day.available-date:hover {
+  background: rgba(52,199,89,0.15);
+  color: #000;
+}
+/* =========================================================
+   CONTACT PAGE MOBILE FIXES
+========================================================= */
+
+/* Make contact info wrap properly on small screens */
+#contact .list-unstyled li {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;                /* allow multi-line wrapping */
+  word-break: break-word;         /* break long email/URLs gracefully */
+  white-space: normal;            /* allow text wrapping */
+  overflow-wrap: anywhere;        /* modern word wrapping */
+  line-height: 1.4;
+}
+
+#contact .list-unstyled li img {
+  flex-shrink: 0;
+  margin-top: 2px;                /* vertical align fine-tuning */
+}
+
+#contact .list-unstyled li span,
+#contact .list-unstyled li a {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Optional: reduce font size slightly for long contact info on mobile */
+@media (max-width: 576px) {
+  #contact .list-unstyled li {
+    font-size: 0.9rem;
+  }
+  #contact .bg-white.rounded-4.shadow-sm.p-4 {
+    padding: 1.2rem !important;
+  }
+}
+#footer .logo {
+  max-height: 45px;
+  width: auto;
+  height: auto;
+}
+/* =========================================================
+   PERFECTLY CENTERED GALLERY ARROWS
+========================================================= */
+
+/* --- Desktop arrows --- */
+.gallery-arrows-desktop {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 0 1rem; /* keep arrows away from screen edge */
+  pointer-events: none; /* let swiper still handle swipes */
+  z-index: 10;
+}
+
+.gallery-arrows-desktop button {
+  pointer-events: all; /* re-enable clicks */
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.gallery-arrows-desktop button:hover {
+  transform: scale(1.08);
+  opacity: 0.9;
+}
+
+/* --- Mobile arrows --- */
+.gallery-arrows-mobile {
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.gallery-arrows-mobile button {
+  transition: transform 0.2s ease;
+}
+
+.gallery-arrows-mobile button:hover {
+  transform: scale(1.1);
+}
+
+/* Ensure arrows appear above images */
+#gallery .swiper {
+  position: relative;
+  z-index: 1;
+}
+/* =========================================================
+   GALLERY TEXT MOBILE PADDING FIX
+========================================================= */
+
+#gallery p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  #gallery p {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #gallery p {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* =========================================================
+   HEADER & NAVIGATION
+========================================================= */
+
+/* Cleaner top header look */
+.header-top {
+  font-size: 13px;
+  color: #666;
+}
+.header-top svg {
+  color: #999;
+}
+.header-top a:hover {
+  opacity: 0.7;
+}
+
+/* Hide top bar on mobile */
+@media (max-width: 768px) {
+  .header-top {
+    display: none !important;
+  }
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+  padding: 0;
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+  color: #000;
+}
+
+/* Brand logo hover */
+.navbar-brand img {
+  max-height: 60px;
+  transition: opacity 0.2s ease-in-out;
+}
+.navbar-brand img:hover {
+  opacity: 0.85;
+}
+
+/* =========================================================
+   SLIDER / HERO SECTION
+========================================================= */
+
+/* Smaller text blocks on hero */
+.small-text h4 {
+  font-size: 1.5rem; /* reduced heading size */
+}
+
+.small-text p,
+.small-text table td {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Hero background container — flexible and elegant */
+#slider .d-flex {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 85vh;              /* flexible instead of fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Center the hero title perfectly */
+#slider .text-start {
+  display: flex;
+  align-items: center;     /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  text-align: center;
+  height: 100%;
+}
+
+#slider h2 {
+  font-weight: 400;
+  line-height: 1.1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  #slider h2 {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #slider h2 {
+    font-size: 2rem !important;
+    padding: 0 1.5rem;
+  }
+
+  #slider .text-start {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* =========================================================
+   BOOKING FORM (MOBILE STYLING)
+========================================================= */
+
+/* Move booking form upward on mobile */
+@media (max-width: 576px) {
+  #slider #form {
+    margin-top: -40px !important; /* adjust to taste: -30px or -50px */
+  }
+
+  /* Adjust container spacing for background harmony */
+  #slider .d-flex {
+    min-height: 95vh !important;
+    align-items: flex-start !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* Booking form — compact, elegant Apple-style layout on mobile */
+@media (max-width: 576px) {
+  /* Reduce hero row padding */
+  #slider .row {
+    padding-top: 1rem !important;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Form card */
+  #form {
+    padding: 14px !important;
+    border-radius: 16px;
+  }
+
+  /* Form title */
+  #form .display-5 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* Reduce gaps between fields */
+  #form .col-12.my-4 {
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Compact labels */
+  #form .form-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Input fields */
+  #form .form-control {
+    height: 44px;
+    font-size: 0.95rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  /* Calendar icon */
+  #form .date label {
+    right: 0.5rem;
+  }
+
+  #form .date label svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Submit button */
+  #form .btn {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Ensure guests input text is not faded */
+  #guests {
+    color: #212529 !important;
+  }
+}
+
+
+#bookingModal .modal-dialog {
+  max-width: 420px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+#bookingModal .modal-content {
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  overflow: hidden;
+}
+
+/* =========================================================
+   BOOKING CONFIRMATION MODAL — DESKTOP & MOBILE FIXED
+========================================================= */
+
+/* ---------- DESKTOP / DEFAULT ---------- */
+#bookingModal .modal-dialog {
+  max-width: 520px;
+  width: 95%;
+  margin: 2rem auto;
+}
+
+#bookingModal .modal-content {
+  border-radius: 16px;
+  border: none;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+#bookingModal .modal-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#bookingModal .modal-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+}
+
+#bookingModal .btn-close {
+  transform: scale(1);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+#bookingModal .btn-close:hover {
+  opacity: 1;
+}
+
+#bookingModal .modal-body {
+  padding: 1rem 1.25rem 0.5rem;
+}
+
+#bookingModal .modal-body label {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+#bookingModal .modal-body input,
+#bookingModal .modal-body select {
+  height: 40px;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+}
+
+#bookingModal .modal-body hr {
+  margin: 0.9rem 0;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+#bookingModal .modal-body p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+#bookingModal .modal-body p strong {
+  color: #111;
+}
+
+#bookingModal .modal-footer {
+  padding: 0.75rem 1.25rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+}
+
+#bookingModal .modal-footer .btn {
+  font-size: 0.9rem;
+  border-radius: 8px;
+  padding: 0.55rem 1.2rem;
+}
+
+/* ---------- OPTIONAL: remove hr inside form ---------- */
+#bookingModal #bookingForm hr {
+  display: none;
+}
+
+/* ---------- MOBILE (≤576px) COMPACT OVERRIDE ---------- */
+@media (max-width: 576px) {
+  #bookingModal .modal-dialog {
+    width: 94% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) !important;
+  }
+
+  #bookingModal .modal-content {
+    border-radius: 10px !important;
+    width: 100% !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    box-shadow: 0 -1px 16px rgba(0, 0, 0, 0.12) !important;
+    -webkit-overflow-scrolling: touch !important;
+    background-color: #fff !important;
+  }
+
+  #bookingModal .modal-header {
+    padding: 0.35rem 0.6rem !important;
+  }
+
+  #bookingModal .modal-title {
+    font-size: 0.9rem !important;
+  }
+
+  #bookingModal .modal-body {
+    padding: 0.45rem 0.6rem 0.25rem !important;
+  }
+
+  #bookingModal .modal-body label {
+    font-size: 0.74rem !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  #bookingModal .modal-body input,
+  #bookingModal .modal-body select {
+    height: 28px !important;
+    font-size: 0.78rem !important;
+    padding: 0.25rem 0.4rem !important;
+  }
+
+  #bookingModal .modal-body p {
+    font-size: 0.74rem !important;
+    margin: 0.1rem 0 !important;
+  }
+
+  #bookingModal .modal-footer {
+    padding: 0.25rem 0.6rem 0.35rem !important;
+  }
+
+  #bookingModal .modal-footer .btn {
+    font-size: 0.74rem !important;
+    padding: 0.35rem 0.7rem !important;
+  }
+}
+
+
+/*
+Theme Name: Mellow - Hotel HTML Website Template
+Theme URI: https://templatesjungle.com/
+Author: TemplatesJungle
+Author URI: https://templatesjungle.com/
+Description: Mellow is specially designed for Hotel Website by TemplatesJungle.
+Version: 1.1
+*/
+
+/*--------------------------------------------------------------
+This is main CSS file that contains custom style rules used in this template
+--------------------------------------------------------------*/
+
+/*------------------------------------*\
+    Table of contents
+\*------------------------------------*/
+
+/*------------------------------------------------
+
+CSS STRUCTURE:
+
+1. VARIABLES
+
+2. GENERAL TYPOGRAPHY
+  2.1 General Styles
+  2.2 Background Color
+  2.3 Section
+    - Section Paddings
+    - Section Margins
+    - Section Title
+  2.4 Buttons
+    - Primary Buttons
+    - Outline Buttons
+    - Button Hover Effects
+
+3. CONTENT ELEMENTS
+  - Dropdown
+  - Form
+  - Svg Color
+  - Swiper
+  - Modal Video
+  - Preloader
+
+4. SITE STRUCTURE
+  4.1 Header
+  4.2 Billboard
+  4.3 Rooms Section
+  4.4 Services Section
+
+5. PAGES STYLE
+  5.1 About page
+  5.2 Blog page 
+  5.3 Booking page 
+  5.4 Gallery page
+  5.5 Reviews page 
+  5.5 FAQs page 
+
+
+  
+/*--------------------------------------------------------------
+/** 1. VARIABLES
+--------------------------------------------------------------*/
+:root {
+  --primary-color: #D16806;
+  --secondary-color: #F9F6F3;
+  --black-color: #1A1A1A;
+  --dark-color: #353535;
+  --primary-color-200: #E8F0F1;
+  --primary-color-400: #c4e9ed;
+  --gray-color: #777F81;
+  --light-color: #fdfdfd;
+
+  /* bootstrap color-scheme */
+  --bs-dark-rgb: 80, 80, 80;
+  --bs-gray-100: #EAE5DD;
+  --bs-gray-300: #DCDCDC;
+  --bs-light-rgb: rgba(255, 255, 255, 1);
+  --bs-body-color-rgb: 53, 53, 53;
+  --bs-primary-rgb: 209, 104, 6;
+  --bs-secondary-rgb: 249, 246, 243;
+}
+
+/* Fonts */
+:root {
+  --heading-font: "Cormorant Upright", serif;
+  --body-font: "Sora", sans-serif;
+}
+
+/*----------------------------------------------*/
+/* 2 GENERAL TYPOGRAPHY
+/*----------------------------------------------*/
+
+/* 2.1 General Styles
+/*----------------------------------------------*/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 164%;
+  letter-spacing: 0.32px;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+p {
+  color: var(--dark-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+.text-light {
+  color: var(--light-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-black {
+  color: var(--black-color) !important;
+}
+
+/* 2.2 Background Color
+/*----------------------------------------------*/
+.bg-light {
+  background-color: var(--light-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-gray {
+  background-color: var(--bs-gray-100) !important;
+}
+
+/*--------------------------------------------------------------
+/** 2.3 Section
+--------------------------------------------------------------*/
+/* - Section Padding
+--------------------------------------------------------------*/
+.padding-small {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.padding-medium {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
+
+.padding-large {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
+
+.padding-side {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+@media (max-width: 1400px) {
+  .padding-side {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .padding-side {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .padding-side {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .padding-side {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .padding-large {
+    padding-top: 15em;
+  }
+}
+
+@media (max-width: 576px) {
+  .padding-side {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .padding-large {
+    padding-top: 18em;
+  }
+}
+
+/* - Section Margin
+--------------------------------------------------------------*/
+.margin-small {
+  margin-top: 8.125em;
+  margin-bottom: 8.125em;
+}
+
+.margin-medium {
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
+
+.margin-large {
+  margin-top: 12em;
+  margin-bottom: 12em;
+}
+
+
+/* - Section Title
+--------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--black-color);
+  font-family: var(--heading-font);
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+/* Animation */
+@media (min-width: 200px) {
+  .animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+}
+
+/* Animate Slide */
+@keyframes slide {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slide {
+  -webkit-animation-name: slide;
+  animation-name: slide;
+}
+
+/*--------------------------------------------------------------
+/** 2.4 Buttons
+--------------------------------------------------------------*/
+.btn {
+  --bs-btn-padding-x: 2.4rem;
+  --bs-btn-padding-y: 1rem;
+  --bs-btn-font-size: 1rem;
+  --bs-btn-font-weight: 400;
+  text-transform: capitalize;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+}
+
+/* - Primary Buttons
+--------------------------------------------------------------*/
+.btn-primary {
+  --bs-btn-color: var(--dark-color);
+  --bs-btn-bg: var(--secondary-color);
+  --bs-btn-border-color: var(--secondary-color);
+  --bs-btn-hover-color: var(--dark-color);
+  --bs-btn-hover-bg: var(--secondary-color);
+  --bs-btn-hover-border-color: var(--secondary-color);
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: var(--dark-color);
+  --bs-btn-active-bg: var(--secondary-color);
+  --bs-btn-active-border-color: var(--secondary-color);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--dark-color);
+  --bs-btn-disabled-bg: var(--secondary-color);
+  --bs-btn-disabled-border-color: var(--secondary-color);
+}
+
+/* - Outline Buttons
+--------------------------------------------------------------*/
+.btn-outline-primary {
+  --bs-btn-color: var(--secondary-color);
+  --bs-btn-border-color: var(--secondary-color);
+  --bs-btn-hover-color: var(--dark-color);
+  --bs-btn-hover-bg: var(--secondary-color);
+  --bs-btn-hover-border-color: var(--secondary-color);
+  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-active-color: var(--dark-color);
+  --bs-btn-active-bg: var(--secondary-color);
+  --bs-btn-active-border-color: var(--secondary-color);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--secondary-color);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--secondary-color);
+  --bs-gradient: none;
+}
+
+/* - Button Hover Effects
+------------------------------------------------------------- */
+.btn-arrow {
+  position: relative;
+  transition: background-color 300ms ease-out;
+}
+
+.btn-arrow span {
+  display: inline-block;
+  position: relative;
+  transition: all 300ms ease-out;
+  will-change: transform;
+}
+
+.btn-arrow:hover span {
+  transform: translate3d(-0.7rem, 0, 0);
+}
+
+.btn-arrow svg {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 300ms ease-out;
+  will-change: right, opacity;
+}
+
+.btn-arrow:hover svg {
+  opacity: 1;
+  right: -1.6rem;
+}
+
+
+/*--------------------------------------------------------------
+/** 3.CONTENT ELEMENTS
+--------------------------------------------------------------*/
+
+/* Dropdown
+------------------------------------------------------------- */
+.dropdown-item {
+  color: var(--dark-color);
+  text-transform: capitalize;
+}
+
+.dropdown-item.active,
+.dropdown-item:hover,
+.dropdown-item:active {
+  color: var(--dark-color);
+  background-color: var(--secondary-color);
+}
+
+/* Form
+------------------------------------------------------------- */
+/* Booking section fix */
+.booking-wrapper {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;           /* desktop: copre tutta l’altezza */
+  display: flex;
+  align-items: center;         /* centro verticale */
+}
+
+@media (max-width: 768px) {
+  .booking-wrapper {
+    min-height: auto;          /* su mobile lascia crescere il contenitore */
+    padding-bottom: 2rem;      /* spazio extra sotto il form */
+  }
+
+  #form {
+    width: 100%;               /* form sempre dentro */
+    margin: 0 auto;            /* centrato */
+    padding: 1.5rem !important; /* meno padding su mobile */
+  }
+}
+/* Base per tutti i giorni: cerchi perfetti */
+/* === Apple-style Flatpickr Theme === */
+
+.flatpickr-calendar {
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255,255,255,0.85);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Sora", sans-serif;
+  color: #1c1c1e;
+}
+
+/* === Header: Month + Year === */
+.flatpickr-months {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0 4px;
+  background: transparent;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.flatpickr-months .flatpickr-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1c1c1e;
+}
+
+.flatpickr-current-month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #1c1c1e;
+}
+
+.flatpickr-current-month .cur-month {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.flatpickr-current-month .numInputWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flatpickr-current-month input.cur-year {
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: #1c1c1e;
+  font-weight: 500;
+  width: 3.5em;
+  text-align: center;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.flatpickr-current-month input.cur-year:hover,
+.flatpickr-current-month input.cur-year:focus {
+  color: #007aff; /* Apple blue highlight */
+}
+
+/* Hide native spin buttons */
+.flatpickr-current-month input.cur-year::-webkit-inner-spin-button,
+.flatpickr-current-month input.cur-year::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Month navigation arrows */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: rgba(0,0,0,0.4);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  background: rgba(0,0,0,0.05);
+  fill: #007aff;
+}
+
+/* === Weekdays === */
+.flatpickr-weekdays {
+  background: transparent;
+  font-weight: 500;
+  color: #8e8e93;
+  font-size: 0.8rem;
+}
+
+/* === Days Grid === */
+.flatpickr-day {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  margin: 3px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1c1c1e;
+  background: transparent;
+  border: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+/* Hover */
+.flatpickr-day:hover,
+.flatpickr-day:focus {
+  background: rgba(0,0,0,0.05);
+  color: #000;
+}
+
+/* Selected day (Apple blue) */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background: #007aff !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,122,255,0.25);
+}
+
+/* Today indicator (thin gray ring) */
+.flatpickr-day.today {
+  border: 1.5px solid rgba(60,60,67,0.3);
+  font-weight: 500;
+}
+
+/* Disabled days */
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover {
+  color: rgba(60,60,67,0.4);
+  background: transparent;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Booked days (soft red outline) */
+.flatpickr-day.booked-date {
+  position: relative;
+  color: rgba(255,59,48,0.8);
+  border: 1.5px solid rgba(255,59,48,0.4);
+  background: transparent;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Available days (gentle green hint on hover) */
+.flatpickr-day.available-date {
+  border: 1.5px solid rgba(52,199,89,0.3);
+}
+
+.flatpickr-day.available-date:hover {
+  background: rgba(52,199,89,0.15);
+  color: #000;
+}
+
+
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--dark-color);
+  outline: 0;
+  box-shadow: none;
+}
+
+input,
+select,
+textarea {
+  border-color: var(--dark-color);
+  outline: 0;
+  box-shadow: none;
+}
+
+select:focus {
+  box-shadow: none;
+}
+
+/* Svg Color
+------------------------------------------------------------- */
+svg.light-color {
+  color: var(--light-color);
+}
+
+svg.dark-color {
+  color: var(--dark-color);
+}
+
+svg.color {
+  color: #ECB27B;
+}
+
+svg.primary-color {
+  color: var(--primary-color);
+}
+
+svg.social {
+  color: #ECB27B;
+}
+
+svg.social:hover {
+  color: var(--primary-color);
+}
+
+
+/* Swiper
+------------------------------------------------------------- */
+
+/* room */
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 5px;
+}
+
+.room-pagination .swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+  background-color: var(--primary-color);
+}
+
+.room-pagination .swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
+}
+
+/* gallery */
+.main-slider-button-next.swiper-button-disabled,
+.main-slider-button-prev.swiper-button-disabled {
+  opacity: .35;
+  cursor: auto;
+  pointer-events: none;
+}
+#gallery {
+  margin-bottom: 80px; /* adjust as needed */
+}
+#gallery .swiper-slide {
+  height: 500px;              /* adjust for desired panoramic height */
+}
+
+#gallery .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fill horizontally, crop top/bottom if needed */
+  border-radius: 10px;         /* optional */
+}
+
+
+
+/* modal video override
+------------------------------------------------------------- */
+.modal-dialog {
+  max-width: 800px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 0;
+  background-color: #f5f3ef;
+  border: none;
+  border-radius: 0
+}
+
+
+/* Preloader
+------------------------------------------------------------- 
+.preloader {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 111;
+  background: #fff;
+}
+
+.loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #D16806;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ECB27B;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #f7dac1;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+*/
+/*----------------------------------------------*/
+/* 4 SITE STRUCTURE */
+/*----------------------------------------------*/
+
+/* 4.1 Header
+/*----------------------------------------------*/
+
+a.nav-link {
+  text-transform: capitalize;
+  color: var(--dark-color);
+}
+
+a.nav-link:focus {
+  color: var(--dark-color);
+}
+
+a.nav-link.active,
+a.nav-link:hover {
+  color: var(--primary-color) !important;
+  outline: none;
+}
+
+#primary-header .dropdown .search::after {
+  content: none;
+}
+
+#primary-header .search-dropdown .dropdown-menu {
+  width: 260px;
+}
+
+#primary-header .search-dropdown .dropdown-menu input {
+  min-width: 100%;
+}
+
+#primary-header .search-dropdown .dropdown-menu button {
+  padding: 0 12px;
+  min-height: -webkit-fill-available;
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 999px) {
+  a.nav-link {
+    font-size: 30px;
+    padding: 15px 0 15px 0 !important;
+  }
+}
+
+
+/* 4.2 Billboard
+/*----------------------------------------------*/
+
+/* date */
+div.datetime-container,
+div.datetime-container * {
+  box-sizing: border-box;
+  font-family: var(--body-font);
+}
+
+div.datetime-container button.date,
+div.datetime-container button.time {
+  background-color: transparent;
+  border: 1px solid #E9E9E9;
+  border-radius: 8px;
+  text-transform: capitalize;
+  text-align: start;
+  padding: 8px 20px;
+  color: var(--gray-color);
+  letter-spacing: 0.1rem;
+}
+
+div.datetime-container button>span {
+  display: inline-block;
+  margin: 0 -6px;
+}
+
+div.datetime-container button span.week-day {
+  font-size: 16px;
+  text-align: right;
+}
+
+div.datetime-container button span.week-day::after {
+  content: ",";
+  display: inline-block;
+}
+
+div.datetime-container button span.month {
+  font-size: 16px;
+  text-align: right;
+}
+
+div.datetime-container button span.hours,
+div.datetime-container button span.month-day {
+  font-size: 16px;
+  text-align: center;
+  width: 45px;
+}
+
+.month br {
+  display: none;
+}
+
+@media (max-width: 1500px) {
+  div.picker {
+    width: max-content;
+  }
+}
+
+
+/*----------------------------------------------*/
+/* 4.3 Rooms Section                            */
+/*----------------------------------------------*/
+
+.room-item {
+  position: relative;
+  overflow: hidden; /* evita che i contenuti escano */
+}
+
+.room-item img.post-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Effetto hover sull'immagine */
+.room-item:hover img.post-image {
+  transform: scale(1.05);
+  opacity: 0.5;
+}
+
+/* Overlay descrizione */
+.product-description {
+  position: absolute;
+  inset: 0; /* occupa tutto lo spazio sopra l’immagine */
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.45); /* overlay più trasparente */
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* testo centrato verticalmente */
+  align-items: flex-start;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  overflow-y: auto; /* se troppo testo, scrolla */
+}
+
+/* Mostra la descrizione in hover */
+.room-item:hover .product-description {
+  opacity: 1;
+}
+
+/* 4.4 Services Section
+/*----------------------------------------------*/
+
+.service {
+  border: 1px solid #F4E2D8;
+  transition: all 0.3s ease-in-out;
+}
+
+.service:hover {
+  border: 1px solid var(--primary-color);
+}
+
+
+/* 4.5 Blog Section
+/*----------------------------------------------*/
+
+.blog-post img.blog-img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.blog-post:hover img.blog-img {
+  opacity: 0.5;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+/*----------------------------------------------*/
+/* 5 PAGES STYLE */
+/*----------------------------------------------*/
+
+/*--------------------------------------------------------------
+5.1 About page 
+--------------------------------------------------------------*/
+
+.breadcrumb-item+.breadcrumb-item::before {
+  color: var(--dark-color);
+}
+
+svg.play-icon {
+  animation: play 1.5s alternate infinite ease-in;
+}
+
+@keyframes play {
+  0% {
+    transform: scale(.8);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+
+}
+
+/*--------------------------------------------------------------
+  5.2 Blog page 
+  --------------------------------------------------------------*/
+.pagination {
+  --bs-pagination-color: var(--black-color);
+  --bs-pagination-hover-color: #fff;
+  --bs-pagination-hover-bg: var(--primary-color);
+  --bs-pagination-hover-border-color: var(--primary-color);
+  --bs-pagination-focus-color: #fff;
+  --bs-pagination-focus-bg: var(--primary-color);
+  --bs-pagination-focus-box-shadow: none;
+  --bs-pagination-active-bg: var(--primary-color);
+  --bs-pagination-active-border-color: var(--primary-color);
+}
+
+
+/*--------------------------------------------------------------
+ 5.3 Booking page 
+  --------------------------------------------------------------*/
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+}
+
+/*--------------------------------------------------------------
+ 5.4 Gallery page 
+  --------------------------------------------------------------*/
+button.filter-button {
+  border: 0;
+  background: transparent;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+  border-radius: 20px;
+}
+
+button.filter-button.active,
+button.filter-button:hover {
+  color: var(--bs-light);
+  background: var(--primary-color);
+}
+
+
+/*--------------------------------------------------------------
+ 5.5 Reviews page
+--------------------------------------------------------------*/
+
+.reviews-components {
+  box-shadow: 0px 12px 90px rgba(12, 12, 12, 0.06);
+}
+
+iconify-icon.quote {
+  font-size: 60px;
+  color: var(--primary-color);
+}
+
+.rate {
+  color: var(--primary-color);
+}
+
+
+
+/*--------------------------------------------------------------
+5.6 FAQs page 
+--------------------------------------------------------------*/
+
+/* accordian style override  */
+
+.accordion {
+  --bs-accordion-border-color: var(--primary-color);
+  --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  --bs-accordion-btn-icon: url('https://api.iconify.design/ion/caret-down.svg?color=%23d06051&width=30');
+  --bs-accordion-btn-active-icon: url('https://api.iconify.design/ion/caret-down.svg?color=%23d06051&width=30');
+  --bs-accordion-border-radius: 0px;
+}
+
+.accordion-header {
+  margin-bottom: 0;
+  border-top: 1px solid var(--primary-color);
+}
+
+.accordion-button {
+  font-family: var(--heading-font);
+  font-weight: var(--heading-font-weight);
+  color: var(--heading-color);
+  line-height: var(--heading-line-height);
+  letter-spacing: 0.065rem;
+  text-transform: uppercase;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--heading-color);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+
+
