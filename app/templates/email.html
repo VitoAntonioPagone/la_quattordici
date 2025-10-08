@@ -1,195 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <title>Conferma Prenotazione</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style type="text/css">
-    body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
-    img { -ms-interpolation-mode:bicubic; border:0; outline:none; text-decoration:none; }
-    table { border-collapse:collapse !important; }
-    body { margin:0; padding:0; width:100% !important; background:#f6f7fb; color:#242424;
-           font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif; }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Conferma Prenotazione</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+      body,
+      table,
+      td,
+      a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        outline: none;
+        text-decoration: none;
+      }
+      table {
+        border-collapse: collapse !important;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+        background: #f6f7fb;
+        color: #242424;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+          'Noto Sans', 'Liberation Sans', sans-serif;
+      }
 
-    .preheader { display:none !important; visibility:hidden; opacity:0; color:transparent; height:0; width:0; overflow:hidden; }
+      .preheader {
+        display: none !important;
+        visibility: hidden;
+        opacity: 0;
+        color: transparent;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+      }
 
-    /* Container table */
-    .outer { width:100%; background:#f6f7fb; padding:24px 12px; }
-    .inner { width:100%; max-width:640px; margin:0 auto; background:#ffffff; border-radius:14px;
-             box-shadow:0 6px 24px rgba(20,20,20,0.08); overflow:hidden; }
+      /* Container table */
+      .outer {
+        width: 100%;
+        background: #f6f7fb;
+        padding: 24px 12px;
+      }
+      .inner {
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 6px 24px rgba(20, 20, 20, 0.08);
+        overflow: hidden;
+      }
 
-    .header { padding:28px 28px 16px; text-align:center; border-bottom:1px solid #efeff3; }
-    .brand-logo { max-width:132px; height:auto; display:block; margin:0 auto 12px; }
-    .title { margin:0; font-size:22px; line-height:1.25; font-weight:700; color:#171717; }
+      .header {
+        padding: 28px 28px 16px;
+        text-align: center;
+        border-bottom: 1px solid #efeff3;
+      }
+      .brand-logo {
+        max-width: 132px;
+        height: auto;
+        display: block;
+        margin: 0 auto 12px;
+      }
+      .title {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.25;
+        font-weight: 700;
+        color: #171717;
+      }
 
-    .body { padding:24px 28px 8px; }
-    .hello { margin:0 0 10px; font-size:18px; font-weight:600; color:#171717; }
-    .lead { margin:0 0 18px; font-size:15px; line-height:1.6; color:#404040; }
+      .body {
+        padding: 24px 28px 8px;
+      }
+      .hello {
+        margin: 0 0 10px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #171717;
+      }
+      .lead {
+        margin: 0 0 18px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #404040;
+      }
 
-    /* Card styles */
-    .card { background:#fafafc; border:1px solid #efeff3; border-radius:12px; }
-    .card-inner { padding:16px; }
-    .label { font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:#6b7280; margin:0 0 6px; }
-    .value { font-size:16px; color:#171717; margin:0; font-weight:600; }
+      /* Card styles */
+      .card {
+        background: #fafafc;
+        border: 1px solid #efeff3;
+        border-radius: 12px;
+      }
+      .card-inner {
+        padding: 16px;
+      }
+      .label {
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #6b7280;
+        margin: 0 0 6px;
+      }
+      .value {
+        font-size: 16px;
+        color: #171717;
+        margin: 0;
+        font-weight: 600;
+      }
 
-    /* Details table */
-    .table-wrap { margin:18px 0 8px; border:1px solid #efeff3; border-radius:12px; overflow:hidden; }
-    .tbl { width:100%; }
-    .tbl th, .tbl td { padding:12px 14px; text-align:left; font-size:14px; }
-    .tbl th { width:42%; color:#6b7280; background:#fafafc; font-weight:600; }
-    .tbl tr + tr td, .tbl tr + tr th { border-top:1px solid #efeff3; }
-    .price { font-size:18px; font-weight:800; color:#171717; }
+      /* Details table */
+      .table-wrap {
+        margin: 18px 0 8px;
+        border: 1px solid #efeff3;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .tbl {
+        width: 100%;
+      }
+      .tbl th,
+      .tbl td {
+        padding: 12px 14px;
+        text-align: left;
+        font-size: 14px;
+      }
+      .tbl th {
+        width: 42%;
+        color: #6b7280;
+        background: #fafafc;
+        font-weight: 600;
+      }
+      .tbl tr + tr td,
+      .tbl tr + tr th {
+        border-top: 1px solid #efeff3;
+      }
+      .price {
+        font-size: 18px;
+        font-weight: 800;
+        color: #171717;
+      }
 
-    .note { margin-top:14px; background:#f9fafb; border:1px dashed #e5e7eb; border-radius:12px; padding:14px 16px; }
-    .note-title { margin:0 0 6px; font-size:14px; font-weight:700; color:#111827; }
-    .note p { margin:6px 0; font-size:14px; color:#374151; }
+      .note {
+        margin-top: 14px;
+        background: #f9fafb;
+        border: 1px dashed #e5e7eb;
+        border-radius: 12px;
+        padding: 14px 16px;
+      }
+      .note-title {
+        margin: 0 0 6px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #111827;
+      }
+      .note p {
+        margin: 6px 0;
+        font-size: 14px;
+        color: #374151;
+      }
 
-    .btn-wrap { text-align:left; padding-top:10px; }
-    .btn { display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none;
-           background:#111111; color:#ffffff !important; font-weight:600; font-size:14px; }
+      .btn-wrap {
+        text-align: left;
+        padding-top: 10px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 10px;
+        text-decoration: none;
+        background: #111111;
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 14px;
+      }
 
-    .footer { padding:18px 28px 26px; color:#6b7280; font-size:12px; line-height:1.5;
-              border-top:1px solid #efeff3; text-align:center; }
-    .footer a { color:#6b7280; text-decoration:underline; }
+      .footer {
+        padding: 18px 28px 26px;
+        color: #6b7280;
+        font-size: 12px;
+        line-height: 1.5;
+        border-top: 1px solid #efeff3;
+        text-align: center;
+      }
+      .footer a {
+        color: #6b7280;
+        text-decoration: underline;
+      }
 
-    /* Mobile stacking + perfect alignment */
-    @media only screen and (max-width:640px){
-      .header, .body, .footer { padding-left:18px !important; padding-right:18px !important; }
-      .title { font-size:20px !important; }
-      .hello { font-size:16px !important; }
+      /* Mobile stacking + perfect alignment */
+      @media only screen and (max-width: 640px) {
+        .header,
+        .body,
+        .footer {
+          padding-left: 18px !important;
+          padding-right: 18px !important;
+        }
+        .title {
+          font-size: 20px !important;
+        }
+        .hello {
+          font-size: 16px !important;
+        }
 
-      .stack-col { display:block !important; width:100% !important; padding:0 0 12px 0 !important; }
-      .stack-spacer { display:none !important; width:0 !important; overflow:hidden !important; }
-      .card { width:100% !important; }
-      .card-inner { padding:16px !important; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Preheader shown in inbox preview -->
-  <div class="preheader">Riepilogo della tua prenotazione e informazioni utili per check-in e check-out.</div>
+        .stack-col {
+          display: block !important;
+          width: 100% !important;
+          padding: 0 0 12px 0 !important;
+        }
+        .stack-spacer {
+          display: none !important;
+          width: 0 !important;
+          overflow: hidden !important;
+        }
+        .card {
+          width: 100% !important;
+        }
+        .card-inner {
+          padding: 16px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preheader shown in inbox preview -->
+    <div class="preheader">
+      Riepilogo della tua prenotazione e informazioni utili per check-in e check-out.
+    </div>
 
-  <!-- Anti-trim tiny token (ensure each email is unique) -->
-  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent;">
-    {{ uniq or modalCheckout }}-{{ modalTotal }}
-  </div>
+    <!-- Anti-trim tiny token (ensure each email is unique) -->
+    <div style="display: none; max-height: 0; overflow: hidden; opacity: 0; color: transparent">
+      {{ uniq or modalCheckout }}-{{ modalTotal }}
+    </div>
 
-  <table class="outer" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-      <td align="center">
-        <table class="inner" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-          <!-- Header -->
-          <tr>
-            <td class="header" align="center">
-              <img class="brand-logo" src="cid:main-logo" alt="La Quattordici - Logo">
-              <h1 class="title">Conferma Prenotazione</h1>
-            </td>
-          </tr>
+    <table class="outer" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td align="center">
+          <table class="inner" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+            <!-- Header -->
+            <tr>
+              <td class="header" align="center">
+                <img class="brand-logo" src="cid:main-logo" alt="La Quattordici - Logo" />
+                <h1 class="title">Conferma Prenotazione</h1>
+              </td>
+            </tr>
 
-          <!-- Body -->
-          <tr>
-            <td class="body">
-              <p class="hello">Ciao {{ fullName }},</p>
-              <p class="lead">
-                grazie per aver scelto <strong>La Quattordici Luxury Apartment</strong>. Di seguito trovi il riepilogo della tua prenotazione.
-              </p>
+            <!-- Body -->
+            <tr>
+              <td class="body">
+                <p class="hello">Ciao {{ fullName }},</p>
+                <p class="lead">
+                  grazie per aver scelto <strong>La Quattordici Luxury Apartment</strong>. Di
+                  seguito trovi il riepilogo della tua prenotazione.
+                </p>
 
-              <!-- Summary cards: two columns (table-based), stack on mobile -->
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 12px;">
-                <tr>
-                  <!-- Check-in -->
-                  <td class="stack-col" width="50%" valign="top" style="padding:0 0 12px 0;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="card">
-                      <tr>
-                        <td class="card-inner">
-                          <p class="label" style="margin:0 0 6px;">Check-in</p>
-                          <p class="value" style="margin:0;">{{ modalCheckin }}</p>
-                          <p style="margin:6px 0 0; font-size:13px; color:#6b7280;">
-                            Orario indicativo: {{ checkinTime or "Non specificato" }}
-                          </p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-
-                  <!-- Spacer (hidden on mobile) -->
-                  <td class="stack-spacer" width="12" style="font-size:0; line-height:0;">&nbsp;</td>
-
-                  <!-- Check-out -->
-                  <td class="stack-col" width="50%" valign="top" style="padding:0 0 12px 0;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="card">
-                      <tr>
-                        <td class="card-inner">
-                          <p class="label" style="margin:0 0 6px;">Check-out</p>
-                          <p class="value" style="margin:0;">{{ modalCheckout }}</p>
-                          <p style="margin:6px 0 0; font-size:13px; color:#6b7280;">
-                            Orario indicativo: {{ checkoutTime or "Non specificato" }}
-                          </p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-
-              <!-- Details -->
-              <div class="table-wrap">
-                <table class="tbl" role="presentation" cellpadding="0" cellspacing="0">
+                <!-- Summary cards: two columns (table-based), stack on mobile -->
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 0 0 12px"
+                >
                   <tr>
-                    <th>Numero notti</th>
-                    <td>{{ modalNights }}</td>
-                  </tr>
-                  <tr>
-                    <th>Numero ospiti</th>
-                    <td>{{ modalGuests }}</td>
-                  </tr>
-                  <tr>
-                    <th>Totale</th>
-                    <td class="price">€{{ modalTotal }}</td>
+                    <!-- Check-in -->
+                    <td class="stack-col" width="50%" valign="top" style="padding: 0 0 12px 0">
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        class="card"
+                      >
+                        <tr>
+                          <td class="card-inner">
+                            <p class="label" style="margin: 0 0 6px">Check-in</p>
+                            <p class="value" style="margin: 0">{{ modalCheckin }}</p>
+                            <p style="margin: 6px 0 0; font-size: 13px; color: #6b7280">
+                              Orario indicativo: {{ checkinTime or "Non specificato" }}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+
+                    <!-- Spacer (hidden on mobile) -->
+                    <td class="stack-spacer" width="12" style="font-size: 0; line-height: 0">
+                      &nbsp;
+                    </td>
+
+                    <!-- Check-out -->
+                    <td class="stack-col" width="50%" valign="top" style="padding: 0 0 12px 0">
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        class="card"
+                      >
+                        <tr>
+                          <td class="card-inner">
+                            <p class="label" style="margin: 0 0 6px">Check-out</p>
+                            <p class="value" style="margin: 0">{{ modalCheckout }}</p>
+                            <p style="margin: 6px 0 0; font-size: 13px; color: #6b7280">
+                              Orario indicativo: {{ checkoutTime or "Non specificato" }}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
                   </tr>
                 </table>
-              </div>
 
-              <!-- Check-out info -->
-              <div class="note">
-                <p class="note-title">Informazioni Check-out</p>
-                <p>Data di check-out: <strong>{{ modalCheckout }}</strong></p>
-                <p>Orario indicativo inserito: <strong>{{ checkoutTime or "Non specificato" }}</strong></p>
-                <p>Riceverai istruzioni dettagliate (consegna chiavi e buone pratiche) prima della partenza. Per qualsiasi esigenza, contattaci.</p>
-              </div>
+                <!-- Details -->
+                <div class="table-wrap">
+                  <table class="tbl" role="presentation" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th>Numero notti</th>
+                      <td>{{ modalNights }}</td>
+                    </tr>
+                    <tr>
+                      <th>Numero ospiti</th>
+                      <td>{{ modalGuests }}</td>
+                    </tr>
+                    <tr>
+                      <th>Totale</th>
+                      <td class="price">€{{ modalTotal }}</td>
+                    </tr>
+                  </table>
+                </div>
 
-              <p class="lead" style="margin-top:16px;">
-                Domande o modifiche? Scrivici a
-                <a href="mailto:laquattordiciluxuryapartment@gmail.com" style="color:#111; text-decoration:underline;">
-                  {{ support_email or "laquattordiciluxuryapartment@gmail.com" }}
-                </a>
-                oppure chiamaci al
-                <a href="tel:+393920242382" style="color:#111; text-decoration:underline;">+39&nbsp;392&nbsp;0242382</a>.
-              </p>
+                <!-- Check-out info -->
+                <div class="note">
+                  <p class="note-title">Informazioni Check-out</p>
+                  <p>Data di check-out: <strong>{{ modalCheckout }}</strong></p>
+                  <p>
+                    Orario indicativo inserito:
+                    <strong>{{ checkoutTime or "Non specificato" }}</strong>
+                  </p>
+                  <p>
+                    Riceverai istruzioni dettagliate (consegna chiavi e buone pratiche) prima della
+                    partenza. Per qualsiasi esigenza, contattaci.
+                  </p>
+                </div>
 
-              <div class="btn-wrap">
-                <a class="btn" href="{{ website_url or '#' }}" target="_blank" rel="noopener">Visita il sito</a>
-              </div>
-            </td>
-          </tr>
+                <p class="lead" style="margin-top: 16px">
+                  Domande o modifiche? Scrivici a
+                  <a
+                    href="mailto:laquattordiciluxuryapartment@gmail.com"
+                    style="color: #111; text-decoration: underline"
+                  >
+                    {{ support_email or "laquattordiciluxuryapartment@gmail.com" }}
+                  </a>
+                  oppure chiamaci al
+                  <a href="tel:+393920242382" style="color: #111; text-decoration: underline"
+                    >+39&nbsp;392&nbsp;0242382</a
+                  >.
+                </p>
 
-          <!-- Footer -->
-          <tr>
-            <td class="footer" align="center">
-              <div style="margin-bottom:6px;"><strong>La Quattordici Luxury Apartment</strong></div>
-              <div style="margin-bottom:6px;">
-                Tel: <a href="tel:+393920242382">+39&nbsp;392&nbsp;0242382</a> •
-                Email: <a href="mailto:laquattordiciluxuryapartment@gmail.com">laquattordiciluxuryapartment@gmail.com</a>
-              </div>
-              <div style="color:#9ca3af;">
-                Se non ti aspettavi questo messaggio, ti invitiamo a ignorarlo.
-              </div>
-            </td>
-          </tr>
+                <div class="btn-wrap">
+                  <a class="btn" href="{{ website_url or '#' }}" target="_blank" rel="noopener"
+                    >Visita il sito</a
+                  >
+                </div>
+              </td>
+            </tr>
 
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
+            <!-- Footer -->
+            <tr>
+              <td class="footer" align="center">
+                <div style="margin-bottom: 6px">
+                  <strong>La Quattordici Luxury Apartment</strong>
+                </div>
+                <div style="margin-bottom: 6px">
+                  Tel: <a href="tel:+393920242382">+39&nbsp;392&nbsp;0242382</a> • Email:
+                  <a href="mailto:laquattordiciluxuryapartment@gmail.com"
+                    >laquattordiciluxuryapartment@gmail.com</a
+                  >
+                </div>
+                <div style="color: #9ca3af">
+                  Se non ti aspettavi questo messaggio, ti invitiamo a ignorarlo.
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>

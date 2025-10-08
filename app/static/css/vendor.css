@@ -11,13 +11,13 @@
 div.datetime-container,
 div.datetime-container * {
   box-sizing: border-box;
-  font-family: arial, sans-serif
+  font-family: arial, sans-serif;
 }
 
 .fix-float:after {
   clear: both;
-  content: "";
-  display: table
+  content: '';
+  display: table;
 }
 
 div.datetime-container {
@@ -26,7 +26,7 @@ div.datetime-container {
   margin: 5px 0;
   position: relative;
   text-align: center;
-  user-select: none
+  user-select: none;
 }
 
 div.datetime-container button.date,
@@ -40,50 +40,50 @@ div.datetime-container button.time {
   outline: 0;
   padding: 0;
   text-transform: uppercase;
-  width: 100%
+  width: 100%;
 }
 
 div.datetime-container button.w-50 {
   float: left;
-  width: 50%
+  width: 50%;
 }
 
 div.datetime-container button.active {
   background-color: #fec601;
-  color: #000
+  color: #000;
 }
 
-div.datetime-container button>span {
+div.datetime-container button > span {
   display: inline-block;
-  margin: 0 -2px
+  margin: 0 -2px;
 }
 
 div.datetime-container button span.week-day {
   font-size: 14px;
-  text-align: right
+  text-align: right;
 }
 
 div.datetime-container button span.hours,
 div.datetime-container button span.month-day {
   font-size: 36px;
   text-align: center;
-  width: 45px
+  width: 45px;
 }
 
 div.datetime-container button span.month-year {
   font-size: 16px;
-  text-align: left
+  text-align: left;
 }
 
 div.datetime-container span.month-year span {
   font-size: 14px;
   font-weight: 700;
   position: relative;
-  top: 2px
+  top: 2px;
 }
 
 div.datetime-container button span.minutes {
-  font-size: 18px
+  font-size: 18px;
 }
 
 div.picker {
@@ -94,14 +94,14 @@ div.picker {
   padding: 0 5px 10px;
   position: absolute;
   width: 100%;
-  z-index: 2
+  z-index: 2;
 }
 
 div.picker table {
   border-collapse: collapse;
   color: #000;
   margin: 0 auto;
-  width: 100%
+  width: 100%;
 }
 
 div.picker table a {
@@ -110,16 +110,16 @@ div.picker table a {
   height: 20px;
   line-height: 20px;
   text-decoration: none;
-  width: 20px
+  width: 20px;
 }
 
 div.picker table th {
   font-size: 20px;
-  font-weight: 400
+  font-weight: 400;
 }
 
 div.picker table th span.month {
-  font-weight: 700
+  font-weight: 700;
 }
 
 div.picker table td,
@@ -128,81 +128,83 @@ div.picker table th {
   padding: 10px 2px;
   text-align: center;
   vertical-align: middle;
-  width: 14.285%
+  width: 14.285%;
 }
 
 div.picker table td.day-label {
   font-size: 14px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 div.picker table td.selectable {
-  cursor: pointer
+  cursor: pointer;
 }
 
 div.picker table td.selectable:hover {
-  font-weight: 700
+  font-weight: 700;
 }
 
 div.picker table a.disabled,
 div.picker table td.disabled {
-  color: #ccc
+  color: #ccc;
 }
 
 div.picker table td.end-day,
 div.picker table td.start-day,
 div.picker table td.time-selected {
   background-repeat: no-repeat;
-  font-weight: 700
+  font-weight: 700;
 }
 
 div.picker table td.start-day {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='m0 14 6-7-6-7'/%3E%3C/svg%3E");
-  background-position: 0
+  background-position: 0;
 }
 
 div.picker table td.end-day {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='M14 0 8 7l6 7'/%3E%3C/svg%3E");
-  background-position: 100%
+  background-position: 100%;
 }
 
 div.picker table td.start-day.end-day {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='m0 14 6-7-6-7'/%3E%3C/svg%3E"), url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='M14 0 8 7l6 7'/%3E%3C/svg%3E");
-  background-position: 0, 100%
+  background-image:
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='m0 14 6-7-6-7'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath fill='%23FFF' d='M14 0 8 7l6 7'/%3E%3C/svg%3E");
+  background-position: 0, 100%;
 }
 
 div.picker table td.active,
 div.picker table td.time-selected {
   background-color: #fec601;
-  color: #000
+  color: #000;
 }
 
 div.picker table td.inactive {
   background-color: #0b6e38;
-  color: #fff
+  color: #fff;
 }
 
 div.picker table td.range {
-  background-color: #eee
+  background-color: #eee;
 }
 
 div.picker table td select {
   appearance: none;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.02 7.409v-3.98L7.752 7.854 2.485 3.43v3.978l5.267 4.426z'/%3E%3C/svg%3E");
-  background-position: right .7em top 50%;
+  background-position: right 0.7em top 50%;
   background-repeat: no-repeat;
-  background-size: .65em auto;
+  background-size: 0.65em auto;
   border: 0;
   border-radius: 5px 5px 0 0;
   font-size: 18px;
   height: 40px;
   outline: none;
   padding: 0 5px;
-  width: 60px
+  width: 60px;
 }
 
 div.picker table td select::-ms-expand {
-  display: none
+  display: none;
 }
 
 div.picker button.confirm {
@@ -215,7 +217,7 @@ div.picker button.confirm {
   height: 40px;
   outline: 0;
   padding: 10px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 /* Chocolat Lightbox */
@@ -229,7 +231,9 @@ div.picker button.confirm {
 }
 
 .chocolat-overlay {
-  transition: opacity 0.4s ease, visibility 0s 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s 0.4s ease;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -242,13 +246,17 @@ div.picker button.confirm {
 }
 
 .chocolat-overlay.chocolat-visible {
-  transition: opacity 0.4s, visibility 0s;
+  transition:
+    opacity 0.4s,
+    visibility 0s;
   visibility: visible;
   opacity: 0.8;
 }
 
 .chocolat-wrapper {
-  transition: opacity 0.4s ease, visibility 0s 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s 0.4s ease;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -261,7 +269,9 @@ div.picker button.confirm {
 }
 
 .chocolat-wrapper.chocolat-visible {
-  transition: opacity 0.4s, visibility 0s;
+  transition:
+    opacity 0.4s,
+    visibility 0s;
   opacity: 1;
   visibility: visible;
 }
@@ -325,7 +335,7 @@ div.picker button.confirm {
 }
 
 .chocolat-image-canvas {
-  transition: opacity .2s;
+  transition: opacity 0.2s;
   opacity: 0;
   flex-grow: 1;
   align-self: stretch;
@@ -387,7 +397,6 @@ div.picker button.confirm {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-
 }
 
 .chocolat-wrapper .chocolat-set-title {
@@ -422,15 +431,15 @@ div.picker button.confirm {
 }
 
 /* no container mode*/
-body.chocolat-open>.chocolat-overlay {
+body.chocolat-open > .chocolat-overlay {
   z-index: 15;
 }
 
-body.chocolat-open>.chocolat-loader {
+body.chocolat-open > .chocolat-loader {
   z-index: 15;
 }
 
-body.chocolat-open>.chocolat-image-wrapper {
+body.chocolat-open > .chocolat-image-wrapper {
   z-index: 17;
 }
 
@@ -447,10 +456,12 @@ body.chocolat-open>.chocolat-image-wrapper {
 
 .chocolat-zoomable.chocolat-zooming-in .chocolat-image-wrapper,
 .chocolat-zoomable.chocolat-zooming-out .chocolat-image-wrapper {
-  transition: width .2s ease, height .2s ease;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease;
 }
 
 .chocolat-zoomable.chocolat-zooming-in .chocolat-img,
 .chocolat-zoomable.chocolat-zooming-out .chocolat-img {
-  transition: margin .2s ease;
+  transition: margin 0.2s ease;
 }

@@ -1,15 +1,15 @@
-(function ($) {
-  "use strict";
+;(function ($) {
+  'use strict'
 
   var initPreloader = function () {
     $(document).ready(function () {
-      var Body = $('body');
-      Body.addClass('preloader-site');
-    });
+      var Body = $('body')
+      Body.addClass('preloader-site')
+    })
     $(window).on('load', function () {
-      $('.preloader').fadeOut();
-      $('body').removeClass('preloader-site');
-    });
+      $('.preloader').fadeOut()
+      $('body').removeClass('preloader-site')
+    })
   }
 
   // init Chocolat light box
@@ -25,44 +25,44 @@
     var $container = $('.isotope-container').isotope({
       itemSelector: '.item',
       layoutMode: 'masonry',
-    });
+    })
 
     // Filter items on button click
     $('.filter-button').click(function () {
-      var filterValue = $(this).attr('data-filter');
+      var filterValue = $(this).attr('data-filter')
       if (filterValue === '*') {
-        $container.isotope({ filter: '*' });
+        $container.isotope({ filter: '*' })
       } else {
-        $container.isotope({ filter: filterValue });
+        $container.isotope({ filter: filterValue })
       }
-      $('.filter-button').removeClass('active');
-      $(this).addClass('active');
-    });
+      $('.filter-button').removeClass('active')
+      $(this).addClass('active')
+    })
 
     // Video Modal
-    var $videoSrc;
+    var $videoSrc
     $('.play-btn').click(function () {
-      $videoSrc = $(this).data("src");
-    });
+      $videoSrc = $(this).data('src')
+    })
 
     $('#myModal').on('shown.bs.modal', function (e) {
-      $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+      $('#video').attr('src', $videoSrc + '?autoplay=1&amp;modestbranding=1&amp;showinfo=0')
     })
 
     $('#myModal').on('hide.bs.modal', function (e) {
-      $("#video").attr('src', $videoSrc);
+      $('#video').attr('src', $videoSrc)
     })
 
     // Swiper Initialization
-    var sliderSwiper = new Swiper(".slider", {
-      effect: "fade",
-    });
+    var sliderSwiper = new Swiper('.slider', {
+      effect: 'fade',
+    })
 
-    var roomSwiper = new Swiper(".room-swiper", {
+    var roomSwiper = new Swiper('.room-swiper', {
       slidesPerView: 3,
       spaceBetween: 20,
       pagination: {
-        el: ".room-pagination",
+        el: '.room-pagination',
         clickable: true,
       },
       breakpoints: {
@@ -76,26 +76,26 @@
           slidesPerView: 3,
         },
       },
-    });
+    })
 
-    var gallerySwiper = new Swiper(".gallery-swiper", {
-      effect: "fade",
+    var gallerySwiper = new Swiper('.gallery-swiper', {
+      effect: 'fade',
       navigation: {
-        nextEl: ".main-slider-button-next",
-        prevEl: ".main-slider-button-prev",
+        nextEl: '.main-slider-button-next',
+        prevEl: '.main-slider-button-prev',
       },
-    });
+    })
 
-    var thumbSlider = new Swiper(".product-thumbnail-slider", {
+    var thumbSlider = new Swiper('.product-thumbnail-slider', {
       autoplay: true,
       loop: true,
       spaceBetween: 8,
       slidesPerView: 4,
       freeMode: true,
       watchSlidesProgress: true,
-    });
+    })
 
-    var largeSlider = new Swiper(".product-large-slider", {
+    var largeSlider = new Swiper('.product-large-slider', {
       autoplay: true,
       loop: true,
       spaceBetween: 10,
@@ -103,22 +103,22 @@
       thumbs: {
         swiper: thumbSlider,
       },
-    });
+    })
 
     // Preloader
-    initPreloader();
+    initPreloader()
 
     // Chocolat
-    initChocolat();
+    initChocolat()
 
     // Animate on Scroll
     AOS.init({
       duration: 1000,
       once: true,
-    });
+    })
 
     // DateTimePicker
-    new DateTimePickerComponent.DatePicker('select-arrival-date');
-    new DateTimePickerComponent.DatePicker('select-departure-date');
-  });
-})(jQuery);
+    new DateTimePickerComponent.DatePicker('select-arrival-date')
+    new DateTimePickerComponent.DatePicker('select-departure-date')
+  })
+})(jQuery)
