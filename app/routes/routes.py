@@ -6,16 +6,16 @@ main_bp = Blueprint("main", __name__)
 # 🌍 Homepages
 @main_bp.route("/")
 def home():
-    # default to English
-    return render_template("index-en.html", lang="en")
-
-@main_bp.route("/en")
-def english():
-    return render_template("index-en.html", lang="en")
+    # Default to Italian
+    return render_template("index-it.html", lang="it")
 
 @main_bp.route("/it")
 def italian():
     return render_template("index-it.html", lang="it")
+
+@main_bp.route("/en")
+def english():
+    return render_template("index-en.html", lang="en")
 
 # 📩 Contacts
 @main_bp.route("/contact")
@@ -26,15 +26,13 @@ def contact_auto():
         return render_template("contact-it.html", lang="it")
     return render_template("contact-en.html", lang="en")
 
-@main_bp.route("/contact-en")
-def contact_en():
-    return render_template("contact-en.html", lang="en")
-
 @main_bp.route("/contact-it")
 def contact_it():
     return render_template("contact-it.html", lang="it")
 
-
+@main_bp.route("/contact-en")
+def contact_en():
+    return render_template("contact-en.html", lang="en")
 
 # ------------------------
 # API Routes
