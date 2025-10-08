@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ lang or 'en' }}">
 <head>
-  <title>La Quattordici</title>
+<title>La Quattordici · Luxury Apartment in Ostuni</title>
+<meta name="description" content="Elegant stone apartment in Ostuni’s historic center. Authentic Apulian charm, modern comfort, and a panoramic terrace. Book your stay.">
+<link rel="canonical" href="https://laquattordiciluxuryapartment.it/en">
+<meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!-- Favicons -->
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon_io/favicon.ico') }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon_io/favicon-32x32.png') }}">
@@ -12,6 +14,18 @@
 <link rel="manifest" href="{{ url_for('static', filename='images/favicon_io/site.webmanifest') }}">
 <meta name="theme-color" content="#ffffff">
 
+<!-- 🌍 Open Graph (Facebook, Instagram, WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Quattordici · Luxury Apartment in Ostuni">
+<meta property="og:description" content="Elegant stone apartment in Ostuni’s historic center. Authentic Apulian charm, modern comfort, and a panoramic terrace. Book your stay.">
+<meta property="og:url" content="https://laquattordiciluxuryapartment.it/">
+<meta property="og:image" content="https://laquattordiciluxuryapartment.it/static/images/social-preview.jpg">
+
+<!-- 🐦 Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La Quattordici · Luxury Apartment in Ostuni">
+<meta name="twitter:description" content="Elegant stone apartment in Ostuni’s historic center. Authentic Apulian charm, modern comfort, and a panoramic terrace.">
+<meta name="twitter:image" content="https://laquattordiciluxuryapartment.it/static/images/social-preview.jpg">
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -768,6 +782,33 @@ Perfect for families, couples, and slow travelers</p>
 <script src="{{ url_for('static', filename='js/booking.js') }}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "La Quattordici Luxury Apartment",
+  "image": "https://laquattordiciluxuryapartment.it/static/images/social-preview.jpg",
+  "url": "https://laquattordiciluxuryapartment.it/",
+  "telephone": "+39 3920242382",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Leonardo Clemente 26",
+    "addressLocality": "Ostuni",
+    "addressRegion": "BR",
+    "postalCode": "72017",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.7326,
+    "longitude": 17.5760
+  },
+  "sameAs": [
+    "https://www.instagram.com/la_quattordici/"
+  ]
+}
+</script>
 
 </body>
 
