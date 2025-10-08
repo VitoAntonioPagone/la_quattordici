@@ -48,7 +48,8 @@ def send_booking():
 
 @routes.route("/send-contact", methods=["POST"])
 def send_contact():
-    data = request.json
+    data = request.get_json(force=True)
+    print("📩 Received data:", data)
     if send_contact_email(data):
         return jsonify({"success": True, "message": "Message sent successfully!"}), 200
     return jsonify({"success": False, "message": "Error sending message."}), 500
