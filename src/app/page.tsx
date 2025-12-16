@@ -37,22 +37,22 @@ const navLinks: Array<{ key: keyof typeof t.nav; href: string }> = [
   return (
     <>
 <header className="fixed top-0 z-50 w-full transition-all duration-500 bg-white/95 backdrop-blur-md border-b border-stone/30">
-  <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
-<a className="flex items-center gap-3 group" href="#hero" aria-label="La Quattordici">
-<img
-  src="/images/logo.png"
-  alt="La Quattordici logo"
-  className="h-9 w-9 lg:h-10 lg:w-10 object-contain bg-transparent"
-  style={{ backgroundColor: "transparent" }}
-/>
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 h-20 lg:h-24 flex items-center justify-between">
+    <a className="flex items-center gap-3 group" href="#hero" aria-label="La Quattordici">
+      <img
+        src="/images/logo.png"
+        alt="La Quattordici logo"
+        className="h-9 w-9 lg:h-10 lg:w-10 object-contain bg-transparent"
+        style={{ backgroundColor: "transparent" }}
+      />
 
-<span className="font-sans font-medium text-2xl lg:text-3xl tracking-[0.08em] text-charcoal group-hover:text-olive transition-colors">
-  La Quattordici
-</span>
+      {/* Hide name on mobile/tablet to avoid overflow */}
+      <span className="hidden lg:inline font-sans font-medium text-2xl lg:text-3xl tracking-[0.08em] text-charcoal group-hover:text-olive transition-colors">
+        La Quattordici
+      </span>
+    </a>
 
-</a>
-
-
+    {/* Desktop nav */}
     <nav className="hidden lg:flex items-center gap-12">
       {navLinks.map(({ key, href }) => (
         <a
@@ -64,26 +64,67 @@ const navLinks: Array<{ key: keyof typeof t.nav; href: string }> = [
         </a>
       ))}
     </nav>
-<div className="flex items-center gap-4 lg:gap-8">
-  <a
-    className="hidden lg:block text-xs font-bold uppercase tracking-[0.15em] text-charcoal hover:text-olive"
-    href="#contact"
-  >
-    {t.nav.enquire}
-  </a>
 
-  <LanguageSwitch lang={lang} />
+    <div className="flex items-center gap-2 sm:gap-3 lg:gap-8">
+      {/* Desktop enquire */}
+      <a
+        className="hidden lg:block text-xs font-bold uppercase tracking-[0.15em] text-charcoal hover:text-olive"
+        href="#contact"
+      >
+        {t.nav.enquire}
+      </a>
 
-  <Link
-    href={`/availability?lang=${lang}`}
-    className="bg-charcoal text-white px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] hover:bg-olive transition-colors duration-500 rounded-sm"
-  >
-    {lang === "it" ? "Verifica disponibilità" : "Check availability"}
-  </Link>
-</div>
+      <LanguageSwitch lang={lang} />
 
+      {/* Desktop CTA */}
+      <Link
+        href={`/availability?lang=${lang}`}
+        className="hidden lg:inline-flex bg-charcoal text-white px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] hover:bg-olive transition-colors duration-500 rounded-sm whitespace-nowrap"
+      >
+        {lang === "it" ? "Verifica disponibilità" : "Check availability"}
+      </Link>
+
+      {/* Mobile menu */}
+      <details className="relative lg:hidden group">
+        <summary className="list-none cursor-pointer select-none rounded-sm border border-stone/60 px-3 py-2 text-charcoal hover:bg-stone/10 transition">
+          <span className="material-symbols-outlined text-[20px] leading-none">menu</span>
+        </summary>
+
+        <div className="absolute right-0 mt-3 w-[min(92vw,340px)] overflow-hidden rounded-lg border border-stone/30 bg-white shadow-xl">
+          <div className="p-4 flex flex-col gap-2">
+            {navLinks.map(({ key, href }) => (
+              <a
+                key={`m-${String(key)}`}
+                href={href}
+                className="px-3 py-2 rounded-md text-sm font-medium text-charcoal hover:bg-stone/10 transition"
+              >
+                {t.nav[key]}
+              </a>
+            ))}
+          </div>
+
+          <div className="p-4 border-t border-stone/30 flex flex-col gap-3">
+            {/* Mobile enquire full width so it never goes out of margin */}
+            <a
+              href="#contact"
+              className="w-full text-center bg-white border border-charcoal text-charcoal py-3 text-xs font-bold uppercase tracking-[0.18em] hover:border-olive hover:text-olive transition rounded-sm"
+            >
+              {t.nav.enquire}
+            </a>
+
+            <Link
+              href={`/availability?lang=${lang}`}
+              className="w-full text-center bg-charcoal text-white py-3 text-xs font-bold uppercase tracking-[0.18em] hover:bg-olive transition rounded-sm"
+            >
+              {lang === "it" ? "Verifica disponibilità" : "Check availability"}
+            </Link>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </header>
+
 
 
 
