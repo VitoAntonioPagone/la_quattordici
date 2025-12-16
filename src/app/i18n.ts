@@ -25,7 +25,7 @@ export const translations = {
       title: "Where ancient limestone meets",
       highlight: "modern comfort",
       text:
-        "La Quattordici is an elegant stone apartment in Ostuni’s historic center. Authentic Apulian charm, modern comfort, and a panoramic terrace — a perfect place to slow down, breathe in the Adriatic breeze, and explore the White City.",
+        "La Quattordici is an elegant stone apartment in Ostuni’s historic center. Authentic Apulian charm and modern comfort — a perfect place to slow down, breathe in the Adriatic breeze, and explore the White City.",
     },
 
     stats: {
@@ -91,7 +91,7 @@ export const translations = {
     gallery: {
       title: "Our Gallery",
       intro:
-        "Discover the charm of our stone home in Ostuni’s historic center. Authentic architecture, modern comfort, refined design, and a panoramic terrace — the perfect place to unwind after exploring Puglia.",
+        "Discover the charm of our stone home in Ostuni’s historic center. Authentic architecture, modern comfort and refined design — the perfect place to unwind after exploring Puglia.",
       viewGallery: "View gallery",
       photosCount: "24 Photos",
     },
@@ -147,7 +147,7 @@ export const translations = {
       title: "Dove la pietra antica incontra",
       highlight: "il comfort moderno",
       text:
-        "La Quattordici è un elegante appartamento in pietra nel centro storico di Ostuni. Autenticità pugliese, comfort moderno e terrazza panoramica: il luogo ideale per rallentare, respirare la brezza adriatica e vivere la Città Bianca.",
+        "La Quattordici è un elegante appartamento in pietra nel centro storico di Ostuni. Autenticità pugliese e comfort moderno: il luogo ideale per rallentare, respirare la brezza adriatica e vivere la Città Bianca.",
     },
 
     stats: {
@@ -213,7 +213,7 @@ export const translations = {
     gallery: {
       title: "La nostra galleria",
       intro:
-        "Scopri il fascino della nostra casa in pietra nel centro storico di Ostuni. Architettura autentica, comfort moderno, design curato e terrazza panoramica: il luogo ideale per rilassarti dopo aver esplorato la Puglia.",
+        "Scopri il fascino della nostra casa in pietra nel centro storico di Ostuni. Architettura autentica, comfort moderno e design curato: il luogo ideale per rilassarti dopo aver esplorato la Puglia.",
       viewGallery: "Apri galleria",
       photosCount: "24 foto",
     },
