@@ -17,9 +17,9 @@ export default async function Page({ searchParams }: PageProps) {
   const sp = (await searchParams) ?? {};
   const lang = getLang(sp.lang);
   const t = translations[lang];
-const galleryImages = Array.from({ length: 8 }, (_, i) => {
+const galleryImages = Array.from({ length: 27 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0");
-  return { src: `images/gallery/${n}.jpg`, alt: `La Quattordici photo ${n}` };
+  return { src: `images/gallery/${n}.jpeg`, alt: `La Quattordici photo ${n}` };
 });
 
 
