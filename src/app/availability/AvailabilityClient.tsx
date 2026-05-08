@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Lang } from "../i18n";
-import SymbolIcon from "../components/SymbolIcon";
 import { legalText } from "../legalContent";
 
 type Props = { lang: Lang };
@@ -294,7 +293,7 @@ export default function AvailabilityClient({ lang }: Props) {
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                   aria-label="Previous month"
                 >
-                  <SymbolIcon name="arrow_back_ios" className="text-sm" />
+                  <span className="material-symbols-outlined text-sm">arrow_back_ios</span>
                 </button>
 
                 <button
@@ -303,7 +302,7 @@ export default function AvailabilityClient({ lang }: Props) {
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                   aria-label="Next month"
                 >
-                  <SymbolIcon name="arrow_forward_ios" className="text-sm" />
+                  <span className="material-symbols-outlined text-sm">arrow_forward_ios</span>
                 </button>
               </div>
             </div>
@@ -401,7 +400,7 @@ export default function AvailabilityClient({ lang }: Props) {
         <div className="lg:col-span-5 relative">
           <div className="sticky top-32 bg-white rounded-lg p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] border border-gray-100">
             <div className="mb-10 text-center border-b border-gray-100 pb-6">
-              <SymbolIcon name="calendar_month" className="text-4xl text-olive mb-4" />
+              <span className="material-symbols-outlined text-4xl text-olive mb-4">calendar_month</span>
               <h2 className="font-serif text-3xl text-charcoal">
                 {lang === "it" ? "Disponibilità" : "Availability"}
               </h2>
@@ -503,7 +502,7 @@ export default function AvailabilityClient({ lang }: Props) {
                 onClick={() => !sending && setShowModal(false)}
                 aria-label="Close"
               >
-                <SymbolIcon name="close" />
+                <span className="material-symbols-outlined">close</span>
               </button>
             </div>
 

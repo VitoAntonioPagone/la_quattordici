@@ -16,8 +16,8 @@ export default {
         stone: "#E6E2DD",
       },
       fontFamily: {
-        serif: ["var(--font-serif)", "serif"],
-        sans: ["var(--font-sans)", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
+        sans: ["Lato", "sans-serif"],
       },
       letterSpacing: {
         "widest-xl": "0.2em",

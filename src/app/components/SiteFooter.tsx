@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { translations } from "../i18n";
 import { legalInfo, legalText, type Lang } from "../legalContent";
 
 function InstagramIcon() {
@@ -20,13 +21,13 @@ function TikTokIcon() {
 }
 
 export default function SiteFooter({ lang }: { lang: Lang }) {
+  const t = translations[lang];
   const text = legalText[lang].footer;
   const year = new Date().getFullYear();
-  const contactTitle = lang === "it" ? "Contatti" : "Contact";
   const legalTitle = lang === "it" ? "Legale" : "Legal";
-  const moreTitle = lang === "it" ? "Altro" : "More";
   const sitemapLabel = lang === "it" ? "Mappa del sito" : "Sitemap";
   const rightsLabel = lang === "it" ? "Tutti i diritti riservati." : "All rights reserved.";
+  const homePrefix = `/?lang=${lang}`;
 
   return (
     <footer
@@ -37,36 +38,61 @@ export default function SiteFooter({ lang }: { lang: Lang }) {
         <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
           <div className="max-w-md">
             <div className="flex items-center gap-3 mb-8">
-              <span className="font-serif text-3xl text-white">{legalInfo.propertyName}</span>
+              <span className="font-serif text-3xl text-white">La Quattordici</span>
             </div>
 
-            <p className="text-gray-400 font-light text-base leading-relaxed mb-6">
-              {legalInfo.addressLine}
-              <br />
-              {legalInfo.cityLine}
+            <p className="text-gray-400 font-light text-base leading-relaxed mb-8">
+              {t.footer.description}
             </p>
 
-            <div className="space-y-2 text-sm text-gray-400">
-              <p>
-                {text.operatorLabel}: {legalInfo.operatorName}
-              </p>
-              <p>
-                {text.cinLabel}: {legalInfo.cin}
-              </p>
-              <p>
-                {text.cisLabel}: {legalInfo.cis}
-              </p>
+            <div className="flex items-center gap-3">
+              <a
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 text-gray-300 transition-all hover:border-white hover:bg-white hover:text-black"
+                href="https://www.instagram.com/la_quattordici/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 text-gray-300 transition-all hover:border-white hover:bg-white hover:text-black"
+                href="https://www.tiktok.com/@la.quattordici"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
+                <TikTokIcon />
+              </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 lg:gap-24 text-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 lg:gap-24 text-sm">
             <div className="flex flex-col gap-4">
-              <h5 className="font-bold uppercase tracking-[0.2em] text-white text-xs">{contactTitle}</h5>
+              <h5 className="font-bold uppercase tracking-[0.2em] text-white text-xs">
+                Explore
+              </h5>
+              <Link className="text-gray-400 hover:text-white transition-colors" href={`${homePrefix}#apartment`}>
+                {t.nav.apartment}
+              </Link>
+              <Link className="text-gray-400 hover:text-white transition-colors" href={`${homePrefix}#experience`}>
+                {t.nav.experience}
+              </Link>
+              <Link className="text-gray-400 hover:text-white transition-colors" href={`${homePrefix}#gallery`}>
+                {t.nav.gallery}
+              </Link>
+              <Link className="text-gray-400 hover:text-white transition-colors" href={`${homePrefix}#location`}>
+                {t.nav.location}
+              </Link>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h5 className="font-bold uppercase tracking-[0.2em] text-white text-xs">{t.footer.contactTitle}</h5>
               <a className="text-gray-400 hover:text-white transition-colors" href={`mailto:${legalInfo.email}`}>
-                {legalInfo.email}
+                Email
               </a>
               <a className="text-gray-400 hover:text-white transition-colors" href="https://wa.me/393920242382" target="_blank" rel="noopener noreferrer">
-                {legalInfo.phone}
+                WhatsApp
               </a>
               <a className="text-gray-400 hover:text-white transition-colors" href="https://www.instagram.com/la_quattordici/" target="_blank" rel="noopener noreferrer">
                 Instagram
@@ -74,30 +100,13 @@ export default function SiteFooter({ lang }: { lang: Lang }) {
               <a className="text-gray-400 hover:text-white transition-colors" href="https://www.tiktok.com/@la.quattordici" target="_blank" rel="noopener noreferrer">
                 TikTok
               </a>
-              <div className="flex items-center gap-3 pt-2">
-                <a
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 text-gray-300 transition-all hover:border-white hover:bg-white hover:text-black"
-                  href="https://www.instagram.com/la_quattordici/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                >
-                  <InstagramIcon />
-                </a>
-                <a
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 text-gray-300 transition-all hover:border-white hover:bg-white hover:text-black"
-                  href="https://www.tiktok.com/@la.quattordici"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="TikTok"
-                >
-                  <TikTokIcon />
-                </a>
-              </div>
             </div>
 
             <div className="flex flex-col gap-4">
               <h5 className="font-bold uppercase tracking-[0.2em] text-white text-xs">{legalTitle}</h5>
+              <span className="text-gray-400">{text.operatorLabel}: {legalInfo.operatorName}</span>
+              <span className="text-gray-400">{text.cinLabel}: {legalInfo.cin}</span>
+              <span className="text-gray-400">{text.cisLabel}: {legalInfo.cis}</span>
               <Link className="text-gray-400 hover:text-white transition-colors" href={`/legal?lang=${lang}`}>
                 {text.legal}
               </Link>
@@ -107,10 +116,6 @@ export default function SiteFooter({ lang }: { lang: Lang }) {
               <Link className="text-gray-400 hover:text-white transition-colors" href={`/terms?lang=${lang}`}>
                 {text.terms}
               </Link>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <h5 className="font-bold uppercase tracking-[0.2em] text-white text-xs">{moreTitle}</h5>
               <Link className="text-gray-400 hover:text-white transition-colors" href={`/?lang=${lang}#hero`}>
                 {sitemapLabel}
               </Link>

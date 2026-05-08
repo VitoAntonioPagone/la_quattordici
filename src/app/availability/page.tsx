@@ -4,7 +4,6 @@ import LanguageSwitch from "../LanguageSwitch";
 import AvailabilityClient from "./AvailabilityClient";
 import { translations } from "../i18n";
 import Image from "next/image";
-import SymbolIcon from "../components/SymbolIcon";
 import SiteFooter from "../components/SiteFooter";
 import { resolveLang } from "../locale";
 
@@ -77,7 +76,7 @@ export default async function AvailabilityPage({
       {/* Mobile menu */}
       <details className="relative lg:hidden group">
         <summary className="list-none cursor-pointer select-none rounded-sm border border-stone/60 px-3 py-2 text-charcoal hover:bg-stone/10 transition">
-          <SymbolIcon name="menu" className="text-[20px] leading-none" />
+          <span className="material-symbols-outlined text-[20px] leading-none">menu</span>
         </summary>
 
         <div className="absolute right-0 mt-3 w-[min(92vw,340px)] overflow-hidden rounded-lg border border-stone/30 bg-white shadow-xl">

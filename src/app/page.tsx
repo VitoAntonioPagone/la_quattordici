@@ -3,7 +3,6 @@ import { translations, type Lang } from "./i18n";
 import LanguageSwitch from "./LanguageSwitch";
 import Link from "next/link";
 import GallerySection from "./GallerySection";
-import SymbolIcon from "./components/SymbolIcon";
 import SiteFooter from "./components/SiteFooter";
 import MapEmbedWithConsent from "./components/MapEmbedWithConsent";
 import { resolveLang } from "./locale";
@@ -84,7 +83,7 @@ const navLinks: Array<{ key: keyof typeof t.nav; href: string }> = [
       {/* Mobile menu */}
       <details className="relative lg:hidden group">
         <summary className="list-none cursor-pointer select-none rounded-sm border border-stone/60 px-3 py-2 text-charcoal hover:bg-stone/10 transition">
-          <SymbolIcon name="menu" className="text-[20px] leading-none" />
+          <span className="material-symbols-outlined text-[20px] leading-none">menu</span>
         </summary>
 
         <div className="absolute right-0 mt-3 w-[min(92vw,340px)] overflow-hidden rounded-lg border border-stone/30 bg-white shadow-xl">
@@ -160,7 +159,9 @@ style={{
       className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity"
     >
       <span className="text-[10px] uppercase tracking-[0.2em]">{t.discover}</span>
-      <SymbolIcon name="expand_more" className="text-white text-3xl font-light" />
+      <span className="material-symbols-outlined text-white text-3xl font-light">
+        expand_more
+      </span>
     </a>
   </section>
 
@@ -169,7 +170,9 @@ style={{
     id="apartment"
     className="py-32 px-6 md:px-12 max-w-4xl mx-auto text-center scroll-mt-28"
   >
-    <SymbolIcon name="spa" className="text-olive text-4xl mb-8 opacity-80" />
+    <span className="material-symbols-outlined text-olive text-4xl mb-8 opacity-80">
+      spa
+    </span>
     <h2 className="font-serif text-3xl md:text-5xl text-charcoal mb-10 leading-snug">
       {t.sectionIntro.title}{" "}
       <span className="italic text-olive">{t.sectionIntro.highlight}</span>.
@@ -184,28 +187,36 @@ style={{
     <div className="lg:col-span-8 flex flex-col gap-24">
       <div className="border-y border-stone py-10 flex flex-wrap justify-between gap-8 items-center">
         <div className="flex items-center gap-3">
-          <SymbolIcon name="king_bed" className="text-2xl text-olive font-light" />
+          <span className="material-symbols-outlined text-2xl text-olive font-light">
+            king_bed
+          </span>
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.bedrooms}
           </span>
         </div>
         <span className="w-px h-8 bg-stone hidden md:block" />
         <div className="flex items-center gap-3">
-          <SymbolIcon name="shower" className="text-2xl text-olive font-light" />
+          <span className="material-symbols-outlined text-2xl text-olive font-light">
+            shower
+          </span>
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.bathrooms}
           </span>
         </div>
         <span className="w-px h-8 bg-stone hidden md:block" />
         <div className="flex items-center gap-3">
-          <SymbolIcon name="groups" className="text-2xl text-olive font-light" />
+          <span className="material-symbols-outlined text-2xl text-olive font-light">
+            groups
+          </span>
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.guests}
           </span>
         </div>
         <span className="w-px h-8 bg-stone hidden md:block" />
         <div className="flex items-center gap-3">
-          <SymbolIcon name="wifi" className="text-xs text-olive font-light" />
+          <span className="material-symbols-outlined text-2xl text-olive font-light">
+            wifi
+          </span>
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.wifi}
           </span>
@@ -237,7 +248,9 @@ style={{
         {t.experience.items.map((item, idx) => (
           <div key={`${item.title}-${idx}`} className="group">
 
-              <SymbolIcon name={item.icon} className="text-olive text-3xl mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <span className="material-symbols-outlined text-olive text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                {item.icon}
+              </span>
               <h4 className="font-serif text-2xl mb-3">{item.title}</h4>
               <p className="text-gray-500 font-light leading-relaxed">{item.desc}</p>
             </div>
@@ -346,7 +359,7 @@ style={{
       <div className="space-y-8">
         <div className="flex items-center gap-6 group cursor-pointer">
           <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:border-olive group-hover:bg-olive group-hover:text-white transition-all">
-            <SymbolIcon name="directions_walk" className="text-xl" />
+            <span className="material-symbols-outlined text-xl">directions_walk</span>
           </div>
           <div>
             <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-charcoal">
@@ -358,7 +371,7 @@ style={{
 
         <div className="flex items-center gap-6 group cursor-pointer">
           <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:border-olive group-hover:bg-olive group-hover:text-white transition-all">
-            <SymbolIcon name="waves" className="text-xl" />
+            <span className="material-symbols-outlined text-xl">waves</span>
           </div>
           <div>
             <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-charcoal">
