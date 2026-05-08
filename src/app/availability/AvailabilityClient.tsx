@@ -1,7 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Lang } from "../i18n";
+import SymbolIcon from "../components/SymbolIcon";
+import { legalText } from "../legalContent";
 
 type Props = { lang: Lang };
 
@@ -67,8 +70,10 @@ export default function AvailabilityClient({ lang }: Props) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [contact, setContact] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendMsg, setSendMsg] = useState("");
+  const complianceText = legalText[lang].form;
 
   const tomorrowISO = useMemo(() => {
     const todayISO = isoDateInTZ(new Date(), tz);
@@ -223,6 +228,10 @@ export default function AvailabilityClient({ lang }: Props) {
       setSendMsg(lang === "it" ? "Compila tutti i campi." : "Please fill all fields.");
       return;
     }
+    if (!privacyAccepted) {
+      setSendMsg(complianceText.privacyError);
+      return;
+    }
 
     setSending(true);
     setSendMsg("");
@@ -285,7 +294,7 @@ export default function AvailabilityClient({ lang }: Props) {
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                   aria-label="Previous month"
                 >
-                  <span className="material-symbols-outlined text-sm">arrow_back_ios</span>
+                  <SymbolIcon name="arrow_back_ios" className="text-sm" />
                 </button>
 
                 <button
@@ -294,7 +303,7 @@ export default function AvailabilityClient({ lang }: Props) {
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                   aria-label="Next month"
                 >
-                  <span className="material-symbols-outlined text-sm">arrow_forward_ios</span>
+                  <SymbolIcon name="arrow_forward_ios" className="text-sm" />
                 </button>
               </div>
             </div>
@@ -392,7 +401,7 @@ export default function AvailabilityClient({ lang }: Props) {
         <div className="lg:col-span-5 relative">
           <div className="sticky top-32 bg-white rounded-lg p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] border border-gray-100">
             <div className="mb-10 text-center border-b border-gray-100 pb-6">
-              <span className="material-symbols-outlined text-4xl text-olive mb-4">calendar_month</span>
+              <SymbolIcon name="calendar_month" className="text-4xl text-olive mb-4" />
               <h2 className="font-serif text-3xl text-charcoal">
                 {lang === "it" ? "Disponibilità" : "Availability"}
               </h2>
@@ -494,7 +503,7 @@ export default function AvailabilityClient({ lang }: Props) {
                 onClick={() => !sending && setShowModal(false)}
                 aria-label="Close"
               >
-                <span className="material-symbols-outlined">close</span>
+                <SymbolIcon name="close" />
               </button>
             </div>
 
@@ -531,6 +540,28 @@ export default function AvailabilityClient({ lang }: Props) {
                 onChange={(e) => setContact(e.target.value)}
                 className="w-full text-sm border-gray-200 focus:border-olive focus:ring-0 py-3 px-3 rounded-sm bg-gray-50"
               />
+            </div>
+
+            <div className="mt-5 rounded-sm border border-stone bg-stone/30 px-4 py-4 text-sm text-gray-600">
+              <p className="mb-3">{complianceText.privacyIntro}</p>
+              <label className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  checked={privacyAccepted}
+                  onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                  className="mt-1 h-4 w-4 border-gray-300 text-charcoal focus:ring-0"
+                />
+                <span>
+                  {complianceText.privacyAck}{" "}
+                  <Link
+                    href={`/privacy?lang=${lang}`}
+                    target="_blank"
+                    className="underline underline-offset-2 hover:text-charcoal"
+                  >
+                    {complianceText.privacyLink}
+                  </Link>
+                </span>
+              </label>
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-4">

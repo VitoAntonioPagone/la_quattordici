@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
-/* Optional: keep your globals tidy */
+:root {
+  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
 html, body {
   height: 100%;
+  font-family: var(--font-sans);
 }

@@ -3,19 +3,19 @@ import { translations, type Lang } from "./i18n";
 import LanguageSwitch from "./LanguageSwitch";
 import Link from "next/link";
 import GallerySection from "./GallerySection";
+import SymbolIcon from "./components/SymbolIcon";
+import SiteFooter from "./components/SiteFooter";
+import MapEmbedWithConsent from "./components/MapEmbedWithConsent";
+import { resolveLang } from "./locale";
 
 
 type PageProps = {
   searchParams?: Promise<{ lang?: string }>;
 };
 
-function getLang(raw?: string): Lang {
-  return raw === "it" || raw === "en" ? raw : "en";
-}
-
 export default async function Page({ searchParams }: PageProps) {
   const sp = (await searchParams) ?? {};
-  const lang = getLang(sp.lang);
+  const lang = await resolveLang(sp.lang);
   const t = translations[lang];
 const galleryImages = Array.from({ length: 27 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0");
@@ -30,9 +30,6 @@ const navLinks: Array<{ key: keyof typeof t.nav; href: string }> = [
   { key: "gallery", href: "#gallery" },
   { key: "location", href: "#location" },
 ];
-
-
-  const year = new Date().getFullYear();
 
   return (
     <>
@@ -87,7 +84,7 @@ const navLinks: Array<{ key: keyof typeof t.nav; href: string }> = [
       {/* Mobile menu */}
       <details className="relative lg:hidden group">
         <summary className="list-none cursor-pointer select-none rounded-sm border border-stone/60 px-3 py-2 text-charcoal hover:bg-stone/10 transition">
-          <span className="material-symbols-outlined text-[20px] leading-none">menu</span>
+          <SymbolIcon name="menu" className="text-[20px] leading-none" />
         </summary>
 
         <div className="absolute right-0 mt-3 w-[min(92vw,340px)] overflow-hidden rounded-lg border border-stone/30 bg-white shadow-xl">
@@ -163,9 +160,7 @@ style={{
       className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity"
     >
       <span className="text-[10px] uppercase tracking-[0.2em]">{t.discover}</span>
-      <span className="material-symbols-outlined text-white text-3xl font-light">
-        expand_more
-      </span>
+      <SymbolIcon name="expand_more" className="text-white text-3xl font-light" />
     </a>
   </section>
 
@@ -174,9 +169,7 @@ style={{
     id="apartment"
     className="py-32 px-6 md:px-12 max-w-4xl mx-auto text-center scroll-mt-28"
   >
-    <span className="material-symbols-outlined text-olive text-4xl mb-8 opacity-80">
-      spa
-    </span>
+    <SymbolIcon name="spa" className="text-olive text-4xl mb-8 opacity-80" />
     <h2 className="font-serif text-3xl md:text-5xl text-charcoal mb-10 leading-snug">
       {t.sectionIntro.title}{" "}
       <span className="italic text-olive">{t.sectionIntro.highlight}</span>.
@@ -191,36 +184,28 @@ style={{
     <div className="lg:col-span-8 flex flex-col gap-24">
       <div className="border-y border-stone py-10 flex flex-wrap justify-between gap-8 items-center">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-2xl text-olive font-light">
-            king_bed
-          </span>
+          <SymbolIcon name="king_bed" className="text-2xl text-olive font-light" />
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.bedrooms}
           </span>
         </div>
         <span className="w-px h-8 bg-stone hidden md:block" />
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-2xl text-olive font-light">
-            shower
-          </span>
+          <SymbolIcon name="shower" className="text-2xl text-olive font-light" />
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.bathrooms}
           </span>
         </div>
         <span className="w-px h-8 bg-stone hidden md:block" />
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-2xl text-olive font-light">
-            groups
-          </span>
+          <SymbolIcon name="groups" className="text-2xl text-olive font-light" />
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.guests}
           </span>
         </div>
         <span className="w-px h-8 bg-stone hidden md:block" />
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-2xl text-olive font-light">
-            wifi
-          </span>
+          <SymbolIcon name="wifi" className="text-xs text-olive font-light" />
           <span className="text-xs uppercase tracking-[0.15em] text-gray-600">
             {t.stats.wifi}
           </span>
@@ -252,9 +237,7 @@ style={{
         {t.experience.items.map((item, idx) => (
           <div key={`${item.title}-${idx}`} className="group">
 
-              <span className="material-symbols-outlined text-olive text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
-              </span>
+              <SymbolIcon name={item.icon} className="text-olive text-3xl mb-4 group-hover:scale-110 transition-transform duration-300" />
               <h4 className="font-serif text-2xl mb-3">{item.title}</h4>
               <p className="text-gray-500 font-light leading-relaxed">{item.desc}</p>
             </div>
@@ -363,7 +346,7 @@ style={{
       <div className="space-y-8">
         <div className="flex items-center gap-6 group cursor-pointer">
           <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:border-olive group-hover:bg-olive group-hover:text-white transition-all">
-            <span className="material-symbols-outlined text-xl">directions_walk</span>
+            <SymbolIcon name="directions_walk" className="text-xl" />
           </div>
           <div>
             <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-charcoal">
@@ -375,7 +358,7 @@ style={{
 
         <div className="flex items-center gap-6 group cursor-pointer">
           <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:border-olive group-hover:bg-olive group-hover:text-white transition-all">
-            <span className="material-symbols-outlined text-xl">waves</span>
+            <SymbolIcon name="waves" className="text-xl" />
           </div>
           <div>
             <h4 className="font-bold text-xs uppercase tracking-widest mb-1 text-charcoal">
@@ -388,14 +371,7 @@ style={{
     </div>
 
     <div className="h-[500px] lg:h-auto w-full relative group overflow-hidden">
-      <iframe
-        title="La Quattordici location on Google Maps"
-        className="w-full h-full transition-transform duration-700 group-hover:scale-105"
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        allowFullScreen
-        src="https://www.google.com/maps?q=40.7342284,17.5768427&z=17&output=embed"
-      />
+      <MapEmbedWithConsent lang={lang} />
 
       <div className="absolute inset-0 bg-black/5 pointer-events-none" />
 
@@ -423,117 +399,7 @@ style={{
 </main>
 
 
-<footer
-  id="contact"
-  className="bg-[#1A1A1A] text-stone py-24 border-t border-gray-800 scroll-mt-28"
->
-  <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-    <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
-      <div className="max-w-md">
-        <div className="flex items-center gap-3 mb-8">
-          <span className="font-serif text-3xl text-white">La Quattordici</span>
-        </div>
-
-        <p className="text-gray-400 font-light text-base leading-relaxed mb-8">
-          {t.footer.description}
-        </p>
-
-        <div className="flex gap-4">
-          <a
-            className="w-10 h-10 border border-gray-700 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all"
-            href="https://www.instagram.com/la_quattordici/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            IG
-          </a>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 lg:gap-24 text-sm">
-        {[
-          {
-            title: "Explore",
-            links: [
-              { label: t.nav.apartment, href: "#apartment" },
-              { label: t.nav.experience, href: "#experience" },
-              { label: t.nav.gallery, href: "#gallery" },
-              { label: t.nav.location, href: "#location" },
-            ],
-          },
-
-          // {
-          //   title: "Stay",
-          //   links: [
-          //     { label: lang === "it" ? "Servizi" : "Amenities", href: "#apartment" },
-          //     { label: lang === "it" ? "Regole" : "Policies", href: "#contact" },
-          //     { label: "FAQ", href: "#contact" },
-          //   ],
-          // },
-
-          {
-            title: "Contact",
-            links: [
-              {
-                label: lang === "it" ? "Email" : "Email",
-                href: "mailto:laquattordiciluxuryapartment@gmail.com",
-              },
-              {
-                label: "WhatsApp",
-                href: "https://wa.me/393920242382",
-              },
-              {
-                label: "Instagram",
-                href: "https://www.instagram.com/la_quattordici/",
-              },
-            ],
-          },
-        ].map((col, colIdx) => (
-          <div key={`${col.title}-${colIdx}`} className="flex flex-col gap-6">
-            <h5 className="font-bold uppercase tracking-[0.2em] text-white text-xs">
-              {col.title}
-            </h5>
-
-            {col.links.map((l, linkIdx) => (
-              <a
-                key={`${l.label}-${l.href}-${linkIdx}`}
-                className="text-gray-400 hover:text-white transition-colors"
-                href={l.href}
-                target={l.href.startsWith("http") ? "_blank" : undefined}
-                rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div className="pt-8 border-t border-gray-800 text-xs text-gray-600 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p>
-        © {year} La Quattordici. {t.footer.rights}
-      </p>
-
-      <div className="flex gap-8">
-        {[
-          { label: "Privacy", href: "#contact" },
-          { label: "Terms", href: "#contact" },
-          { label: "Sitemap", href: "#hero" },
-        ].map((x, idx) => (
-          <a
-            key={`${x.label}-${idx}`}
-            className="hover:text-gray-400 transition-colors"
-            href={x.href}
-          >
-            {x.label}
-          </a>
-        ))}
-      </div>
-    </div>
-  </div>
-</footer>
+<SiteFooter lang={lang} />
 
 
     </>

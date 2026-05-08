@@ -1,14 +1,12 @@
 // src/app/availability/page.tsx
-import type { Lang } from "../i18n";
 import Link from "next/link";
 import LanguageSwitch from "../LanguageSwitch";
 import AvailabilityClient from "./AvailabilityClient";
 import { translations } from "../i18n";
 import Image from "next/image";
-
-function getLang(raw?: string): Lang {
-  return raw === "it" || raw === "en" ? raw : "en";
-}
+import SymbolIcon from "../components/SymbolIcon";
+import SiteFooter from "../components/SiteFooter";
+import { resolveLang } from "../locale";
 
 export default async function AvailabilityPage({
   searchParams
@@ -16,7 +14,7 @@ export default async function AvailabilityPage({
   searchParams?: Promise<{ lang?: string }>;
 }) {
   const sp = await searchParams;
-  const lang = getLang(sp?.lang);
+  const lang = await resolveLang(sp?.lang);
   const t = translations[lang];
 
   const navLinks: Array<{ key: keyof typeof t.nav; href: string }> = [
@@ -79,7 +77,7 @@ export default async function AvailabilityPage({
       {/* Mobile menu */}
       <details className="relative lg:hidden group">
         <summary className="list-none cursor-pointer select-none rounded-sm border border-stone/60 px-3 py-2 text-charcoal hover:bg-stone/10 transition">
-          <span className="material-symbols-outlined text-[20px] leading-none">menu</span>
+          <SymbolIcon name="menu" className="text-[20px] leading-none" />
         </summary>
 
         <div className="absolute right-0 mt-3 w-[min(92vw,340px)] overflow-hidden rounded-lg border border-stone/30 bg-white shadow-xl">
@@ -147,6 +145,7 @@ export default async function AvailabilityPage({
           <AvailabilityClient lang={lang} />
         </section>
       </main>
+      <SiteFooter lang={lang} />
     </>
   );
 }
